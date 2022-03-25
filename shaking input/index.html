@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shaking input</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        .wrapper {
+            position: relative;
+        }
+    
+        .shaking {
+            width: 10rem;
+            height: 2.5rem;
+            padding: 0 0.5rem;
+            border-radius: .25rem;
+            border-width: 1px;
+            border-style: solid;
+            color: #f9f9f9;
+            background-color: black;
+            outline: none;
+        }
+
+        .validation {
+            position: absolute;
+            top: 0.55rem;
+            right: 0.7rem;
+            color: #fd4444;
+            opacity: 0;
+        }
+
+        @keyframes shake {
+            0%, 100% {transform: translateX(0);}
+            25% {transform: translateX(8px);}
+            75% {transform: translateX(-8px);}
+        }
+
+        input:valid {border-color: #55d688;}
+        input:invalid {border-color: #fd4444;}
+        input:invalid ~ .validation {opacity: 1;}
+        input:invalid , inut:invalid ~ .validation {
+            animation: shake 0.1635s 0s 3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <input type="text" class="shaking" required />
+            <div class="validation">*</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        .wrapper {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            transform: rotate(45deg);
+        }
+
+        .tick-micro {
+            width: 20px;
+            height: 5px;
+            border-radius: 5px;
+            background-color: aqua;
+            position: relative;
+            animation: tick-animation 5s linear infinite;
+            transform-origin: 0% 0%;
+        }
+
+        .tick-micro::before {
+            content: "";
+            position: absolute;
+            bottom: 1px;
+            right: 0;
+            width: 5px;
+            height: 50px;
+            border-radius: 5px;
+            background-color: aqua;
+            animation: tick-before-animation 5s linear infinite;
+            transform-origin: 0% 100%;
+        }
+
+        @keyframes tick-animation {
+            0%,20% {
+                transform: scaleX(0);
+            }
+            30% {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes tick-before-animation {
+            0%,30% {
+                transform: scaleY(0);
+            }
+            45% {
+                transform: scaleY(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="tick-micro"></div>
+        </div>
+    </div>
+</body>
+</html>
