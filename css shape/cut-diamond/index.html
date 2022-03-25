@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cut-diamo</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        .diamo {
+            height: 0;
+            position: relative;
+            /* set shape */
+            width: 50px;
+            box-sizing: content-box;
+            border-style: solid;
+            border-color: transparent transparent aqua transparent;
+            border-width: 0px 25px 25px 25px;
+        }
+
+        .diamo::before {
+            content: "";
+            position: absolute;
+            top: 25px;
+            left: -25px;
+            border-style: solid;
+            border-color: aqua transparent transparent transparent;
+            border-width: 70px 50px 0px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="diamo"></div>
+    </div>
+</body>
+
+</html>
